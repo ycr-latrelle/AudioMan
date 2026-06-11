@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: audioman-backend
+    env: python
+    pythonVersion: "3.11.9"
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --worker-class eventlet -w 1 app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: RENDER_PYTHON_VERSION
+        value: "3.11.9"
