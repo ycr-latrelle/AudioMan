@@ -8,7 +8,7 @@ import time
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'audioman-secret-key-2024'
 CORS(app, origins="*")
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # In-memory store: {connection_id: {username, socket_id, created_at}}
 sessions = {}
